@@ -67,19 +67,22 @@ namespace RobotNamespace::R2
 
 int main()
 {
-    cout << "Running Task 1" << endl;
+    cout << "Running Task 2" << endl;
     RobotNamespace::R1::Robot Robot1;
     RobotNamespace::R1::Robot::SensorReadings getData1;
 
     RobotNamespace::R2::Robot Robot2;
     RobotNamespace::R2::Robot::SensorReadings getData2;
-    while (1)
+    int i = 0;
+    while (i < 5)
     {
         getData1 = Robot1.getRandomData();
         Robot1.DisplaySensorReading(getData1);
 
         getData2 = Robot2.getRandomData();
         Robot2.DisplaySensorReading(getData2);
+        cout<<"\n"<<endl;
+        i++;
     }
 
     return 0;

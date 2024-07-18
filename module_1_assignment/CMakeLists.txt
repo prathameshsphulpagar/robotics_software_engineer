@@ -14,6 +14,8 @@ target_link_libraries(task_1)
 add_executable(task_2 src/task_2.cpp)
 target_link_libraries(task_2)
 
+add_executable(task_3 src/task_3.cpp)
+target_link_libraries(task_3)
 ament_package()
 
 

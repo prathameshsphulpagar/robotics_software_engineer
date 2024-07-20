@@ -33,7 +33,11 @@ int main()
 
     Template<int> sample_temp_obj;
     sample_temp_obj.sensorData(temp_data);
+
     Template<float> sample_obj;
     sample_obj.sensorData(dis_data);
+    char c = 'c';
+    Template<char> sample_char_obj;
+    sample_char_obj.sensorData(c);
     return 0;
 }

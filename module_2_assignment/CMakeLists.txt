@@ -14,13 +14,17 @@ find_package(geometry_msgs REQUIRED)
 add_executable(drive src/drive.cpp)
 ament_target_dependencies(drive rclcpp geometry_msgs)
 
+add_executable(test1 src/test.cpp)
+ament_target_dependencies(test1 rclcpp geometry_msgs)
+
 install(DIRECTORY
-  # launch
+  launch
   src
   DESTINATION share/${PROJECT_NAME}
 )
 install(TARGETS
   drive
+  test1
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

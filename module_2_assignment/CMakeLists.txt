@@ -17,6 +17,9 @@ ament_target_dependencies(drive rclcpp geometry_msgs)
 add_executable(test1 src/test.cpp)
 ament_target_dependencies(test1 rclcpp geometry_msgs)
 
+add_executable(task3 src/task3.cpp)
+ament_target_dependencies(task3 rclcpp geometry_msgs)
+
 install(DIRECTORY
   launch
   src
@@ -25,6 +28,7 @@ install(DIRECTORY
 install(TARGETS
   drive
   test1
+  task3
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

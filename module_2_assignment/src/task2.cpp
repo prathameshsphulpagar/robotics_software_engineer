@@ -12,7 +12,7 @@ using namespace std::chrono_literals;
 class DriveTurtleBot : public rclcpp::Node // MODIFY NAME
 {
 public:
-    DriveTurtleBot() : Node("drive_node") // MODIFY NAME
+    DriveTurtleBot() : Node("task2_node") // MODIFY NAME
     {
         drive_publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("/turtle1/cmd_vel", 10);
         timer_ = this->create_wall_timer(500ms, std::bind(&DriveTurtleBot::timer_callback, this));

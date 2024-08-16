@@ -12,7 +12,7 @@ using namespace std::chrono_literals;
 class DriveTurtleBot : public rclcpp::Node // MODIFY NAME
 {
 public:
-    DriveTurtleBot() : Node("drive_node") // MODIFY NAME
+    DriveTurtleBot() : Node("task1_node") // MODIFY NAME
     {
         this->declare_parameter<int>("given_radius", 3);
         this->get_parameter("given_radius", given_radius);

@@ -10,7 +10,7 @@ launch file that run turtlesim simulation and node simultaneously
 ros2 launch module_2_assignment task2.launch.py 
 ```
 3) to run task 3
-3 middel robot back and forth
+3 mid 3 robot run back and forth
 ```
 ros2 launch module_2_assignment task3.launch.py 
 ```

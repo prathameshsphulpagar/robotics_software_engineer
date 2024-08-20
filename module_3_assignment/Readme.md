@@ -19,3 +19,10 @@ Add joints to the same Robotic Arm that you created earlier
 - **Tasks**:
 Put your robotic arm on top of different drive robot
     - Connect using base_link of diff bot.
+
+
+### To run the code use following command
+- **Rviz display node**
+1) ros2 launch yodha_robot_urdf_description display.launch.py
+2) ros2 launch yodha_robot_urdf_description gazebo.launch.py 
+

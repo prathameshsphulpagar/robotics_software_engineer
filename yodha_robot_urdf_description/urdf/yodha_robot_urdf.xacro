@@ -1,0 +1,393 @@
+<?xml version="1.0" ?>
+<robot name="yodha_robot_urdf" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find yodha_robot_urdf_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find yodha_robot_urdf_description)/urdf/yodha_robot_urdf.trans" />
+<xacro:include filename="$(find yodha_robot_urdf_description)/urdf/yodha_robot_urdf.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.03759192510064886 0.00114551253474628 0.08335481785975894" rpy="0 0 0"/>
+    <mass value="6.677608360201219"/>
+    <inertia ixx="0.028505" iyy="0.056903" izz="0.071517" ixy="-6e-05" iyz="2.6e-05" ixz="-0.001749"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="1.44853377330445e-06 2.7616170642256674e-07 0.010000470080404444" rpy="0 0 0"/>
+    <mass value="0.6042382071025928"/>
+    <inertia ixx="0.000205" iyy="0.000205" izz="0.00037" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.117737 -0.001226 -0.164764" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.117737 -0.001226 -0.164764" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="realsence_1">
+  <inertial>
+    <origin xyz="0.004999707663906422 2.761617057150164e-07 -1.0024462618329899e-07" rpy="0 0 0"/>
+    <mass value="0.08242500245645643"/>
+    <inertia ixx="3.5e-05" iyy="2e-06" izz="3.4e-05" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.187737 -0.001226 -0.082264" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/realsence_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.187737 -0.001226 -0.082264" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/realsence_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rfwheel_1">
+  <inertial>
+    <origin xyz="-0.0004889140025854805 -0.014999723838293719 0.00011426195402471084" rpy="0 0 0"/>
+    <mass value="2.044817023447539"/>
+    <inertia ixx="0.001605" iyy="0.002914" izz="0.001615" ixy="-0.0" iyz="-0.0" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.107737 0.108774 -0.054764" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/rfwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.107737 0.108774 -0.054764" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/rfwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rbwheel_1">
+  <inertial>
+    <origin xyz="-0.0004889140025840233 -0.014999723838292706 0.00011426195402416961" rpy="0 0 0"/>
+    <mass value="2.0448170234475396"/>
+    <inertia ixx="0.001605" iyy="0.002914" izz="0.001615" ixy="0.0" iyz="-0.0" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.042263 0.108774 -0.054764" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/rbwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.042263 0.108774 -0.054764" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/rbwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lfwheel_1">
+  <inertial>
+    <origin xyz="-0.0004889140025847172 0.01500027616170617 0.00011426195402349654" rpy="0 0 0"/>
+    <mass value="2.044817023447539"/>
+    <inertia ixx="0.001605" iyy="0.002914" izz="0.001615" ixy="0.0" iyz="-0.0" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.107737 -0.111226 -0.054764" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/lfwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.107737 -0.111226 -0.054764" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/lfwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lbwheel_1">
+  <inertial>
+    <origin xyz="-0.0004889140025833849 0.015000276161707196 0.00011426195402289979" rpy="0 0 0"/>
+    <mass value="2.0448170234475396"/>
+    <inertia ixx="0.001605" iyy="0.002914" izz="0.001615" ixy="0.0" iyz="-0.0" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.042263 -0.111226 -0.054764" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/lbwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.042263 -0.111226 -0.054764" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/lbwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="imu_1">
+  <inertial>
+    <origin xyz="8.556984261789968e-10 2.420403805189785e-12 0.004999898451521614" rpy="0 0 0"/>
+    <mass value="0.06280000187158614"/>
+    <inertia ixx="3e-06" iyy="9e-06" izz="1e-05" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.005 -0.0 -0.099764" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/imu_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.005 -0.0 -0.099764" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/imu_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gps_1">
+  <inertial>
+    <origin xyz="9.296814013071142e-10 2.4204614829476862e-12 0.0024998984515221534" rpy="0 0 0"/>
+    <mass value="0.003082687791335116"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.075 -0.0 -0.139764" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/gps_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.075 -0.0 -0.139764" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/gps_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_rotate_arm_1">
+  <inertial>
+    <origin xyz="6.272633384929449e-10 -1.0815964096577702e-10 0.006686716135703513" rpy="0 0 0"/>
+    <mass value="0.18089567585712482"/>
+    <inertia ixx="2.9e-05" iyy="3e-05" izz="5e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.075 0.05 -0.134764" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/link_rotate_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.075 0.05 -0.134764" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/link_rotate_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_one_arm_1">
+  <inertial>
+    <origin xyz="-1.0397197824918436e-09 0.004999999329448161 0.0350000021132226" rpy="0 0 0"/>
+    <mass value="0.05803268768277522"/>
+    <inertia ixx="2.8e-05" iyy="2.8e-05" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.075 0.045 -0.1525" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/link_one_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.075 0.045 -0.1525" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/link_one_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Link_two_arm_1">
+  <inertial>
+    <origin xyz="-1.0451212673068255e-09 -0.005000000670551605 0.07000000321050995" rpy="0 0 0"/>
+    <mass value="0.11298268776623219"/>
+    <inertia ixx="0.000197" iyy="0.000197" izz="2e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.075 0.045 -0.2225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/Link_two_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.075 0.045 -0.2225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/Link_two_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Gripper_arm_1">
+  <inertial>
+    <origin xyz="-1.0887049472496635e-06 -0.006865669790668855 0.026869554630628734" rpy="0 0 0"/>
+    <mass value="0.11008565604377714"/>
+    <inertia ixx="0.000104" iyy="2.8e-05" izz="7.8e-05" ixy="0.0" iyz="2.6e-05" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.075 0.045 -0.3625" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/Gripper_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.075 0.045 -0.3625" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/Gripper_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Gripper_lock_arm_1">
+  <inertial>
+    <origin xyz="4.570676908066673e-07 0.0034999996274713424 0.00019231335475239364" rpy="0 0 0"/>
+    <mass value="0.01632800000000002"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.075 0.075 -0.409" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/Gripper_lock_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.075 0.075 -0.409" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find yodha_robot_urdf_description)/meshes/Gripper_lock_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rigid 2" type="fixed">
+  <origin xyz="0.117737 0.001226 0.164764" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+</joint>
+
+<joint name="Rigid 3" type="fixed">
+  <origin xyz="0.187737 0.001226 0.082264" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="realsence_1"/>
+</joint>
+
+<joint name="Revolute 4" type="continuous">
+  <origin xyz="0.107737 -0.108774 0.054764" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rfwheel_1"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 5" type="continuous">
+  <origin xyz="-0.042263 -0.108774 0.054764" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rbwheel_1"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 6" type="continuous">
+  <origin xyz="0.107737 0.111226 0.054764" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lfwheel_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="Revolute 7" type="continuous">
+  <origin xyz="-0.042263 0.111226 0.054764" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lbwheel_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="Rigid 9" type="fixed">
+  <origin xyz="-0.005 0.0 0.099764" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="imu_1"/>
+</joint>
+
+<joint name="Rigid 10" type="fixed">
+  <origin xyz="-0.075 0.0 0.139764" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="gps_1"/>
+</joint>
+
+<joint name="Revolute 27" type="revolute">
+  <origin xyz="-0.075 -0.05 0.134764" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="link_rotate_arm_1"/>
+  <axis xyz="-0.0 0.0 1.0"/>
+  <limit upper="1.570796" lower="-0.610865" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 28" type="revolute">
+  <origin xyz="0.0 0.005 0.017736" rpy="0 0 0"/>
+  <parent link="link_rotate_arm_1"/>
+  <child link="link_one_arm_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+  <limit upper="0.785398" lower="-1.570796" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 29" type="revolute">
+  <origin xyz="0.0 0.0 0.07" rpy="0 0 0"/>
+  <parent link="link_one_arm_1"/>
+  <child link="Link_two_arm_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+  <limit upper="0.785398" lower="-0.785398" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 30" type="revolute">
+  <origin xyz="0.0 0.0 0.14" rpy="0 0 0"/>
+  <parent link="Link_two_arm_1"/>
+  <child link="Gripper_arm_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+  <limit upper="0.0" lower="-2.181662" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Slider 31" type="prismatic">
+  <origin xyz="0.0 -0.03 0.0465" rpy="0 0 0"/>
+  <parent link="Gripper_arm_1"/>
+  <child link="Gripper_lock_arm_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+  <limit upper="0.075" lower="0.001" effort="100" velocity="100"/>
+</joint>
+
+</robot>

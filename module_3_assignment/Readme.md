@@ -8,7 +8,7 @@ sensors added are as follows
 2) GPS
 3) lidar
 4) IMU
-
+5) 3 dof robotic arm
 _ **how to run this code**
 1) ros2 launch yodha_robot_urdf_description display.launch.py
 2) ros2 launch yodha_robot_urdf_description gazebo.launch.py 

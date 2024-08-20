@@ -23,6 +23,9 @@ Put your robotic arm on top of different drive robot
 
 ### To run the code use following command
 - **Rviz display node**
+insted of keeping urdf name as module 3 name iskept as yodha_robot_urdf so its seperately added
+all 3 tasks are combined and implemented using fusion 360 software.
+
 1) ros2 launch yodha_robot_urdf_description display.launch.py
 2) ros2 launch yodha_robot_urdf_description gazebo.launch.py 
 

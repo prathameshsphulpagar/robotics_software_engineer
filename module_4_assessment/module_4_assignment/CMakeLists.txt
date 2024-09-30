@@ -18,6 +18,7 @@ ament_target_dependencies(task3 rclcpp sensor_msgs)
 install(DIRECTORY
   launch
   src
+  worlds
   DESTINATION share/${PROJECT_NAME}
 )
 install(TARGETS

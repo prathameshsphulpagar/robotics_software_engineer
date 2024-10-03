@@ -15,6 +15,9 @@ find_package(sensor_msgs REQUIRED)
 add_executable(task3 src/task3.cpp)
 ament_target_dependencies(task3 rclcpp sensor_msgs)
 
+add_executable(imu_data_process src/imu_data_process.cpp)
+ament_target_dependencies(imu_data_process rclcpp sensor_msgs)
+
 install(DIRECTORY
   launch
   src
@@ -26,6 +29,7 @@ install(TARGETS
   # task1
   task3
   # task4
+  imu_data_process
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

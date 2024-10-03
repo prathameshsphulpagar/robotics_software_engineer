@@ -28,11 +28,11 @@
     <right_joint>Revolute 4</right_joint>
 
     <wheel_separation>0.22</wheel_separation>
-    <wheel_diameter>0.01</wheel_diameter>
+    <wheel_diameter>0.05</wheel_diameter>
 
     <robot_base_frame>base_link</robot_base_frame>
-    <max_wheel_torque>20</max_wheel_torque>
-    <max_wheel_acceleration>5.0</max_wheel_acceleration>
+    <max_wheel_torque>0.5</max_wheel_torque>
+    <max_wheel_acceleration>0.5</max_wheel_acceleration>
 
     <command_topic>cmd_vel</command_topic>
 
@@ -58,8 +58,8 @@
     <wheel_diameter>0.05</wheel_diameter>
 
     <robot_base_frame>base_link</robot_base_frame>
-    <max_wheel_torque>20</max_wheel_torque>
-    <max_wheel_acceleration>5.0</max_wheel_acceleration>
+    <max_wheel_torque>0.5</max_wheel_torque>
+    <max_wheel_acceleration>0.5</max_wheel_acceleration>
 
     <command_topic>cmd_vel</command_topic>
     <odometry_topic>odom</odometry_topic>

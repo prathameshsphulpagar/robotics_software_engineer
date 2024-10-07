@@ -13,7 +13,7 @@ find_package(geometry_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
 add_executable(task3 src/task3.cpp)
-ament_target_dependencies(task3 rclcpp sensor_msgs)
+ament_target_dependencies(task3 rclcpp sensor_msgs geometry_msgs)
 
 add_executable(imu_data_process src/imu_data_process.cpp)
 ament_target_dependencies(imu_data_process rclcpp sensor_msgs)

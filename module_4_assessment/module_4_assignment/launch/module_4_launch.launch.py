@@ -21,7 +21,21 @@ def generate_launch_description():
         output='screen'
         )
 
+    wall_following_node = Node(
+        package='module_4_assignment',  # Replace with your package name
+        executable='wall_following',  # Replace with your node executable name
+        name='wall_following_node',
+        output='screen'
+        )
+    imu_data_node = Node(
+        package='module_4_assignment',  # Replace with your package name
+        executable='imu_data_process',  # Replace with your node executable name
+        name='imu_data_node',
+        output='screen'
+        )
     return LaunchDescription([
         lidar_sensing_node, 
-        include_bal_launch
+        include_bal_launch,
+        wall_following_node,
+        imu_data_node
     ])

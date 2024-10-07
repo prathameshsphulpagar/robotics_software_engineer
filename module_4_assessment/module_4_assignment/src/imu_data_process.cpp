@@ -6,7 +6,7 @@
 class ImuVelocityCalculator : public rclcpp::Node
 {
 public:
-    ImuVelocityCalculator() : Node("imu_velocity_calculator")
+    ImuVelocityCalculator() : Node("imu_data_node")
     {
         // Subscribe to the IMU topic
         imu_subscription_ = this->create_subscription<sensor_msgs::msg::Imu>(

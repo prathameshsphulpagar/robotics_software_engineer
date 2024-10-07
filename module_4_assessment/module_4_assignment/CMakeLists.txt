@@ -18,6 +18,9 @@ ament_target_dependencies(task3 rclcpp sensor_msgs geometry_msgs)
 add_executable(imu_data_process src/imu_data_process.cpp)
 ament_target_dependencies(imu_data_process rclcpp sensor_msgs)
 
+add_executable(wall_following src/wall_following.cpp)
+ament_target_dependencies(wall_following rclcpp geometry_msgs sensor_msgs)
+
 install(DIRECTORY
   launch
   src
@@ -30,6 +33,7 @@ install(TARGETS
   task3
   # task4
   imu_data_process
+  wall_following
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

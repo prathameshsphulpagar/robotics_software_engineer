@@ -17,12 +17,12 @@ public:
         ImuSubscription_ = this->create_subscription<sensor_msgs::msg::Imu>("/imu_data/out", 10, std::bind(&WallFollowingNode::imu_callback, this, std::placeholders::_1));
         // Publisher for velocity commands
         velocity_publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
-        Kp = 0.06;
+        Kp = 0.3;
         Ki = 0.0;
-        Kd = 0.6;
+        Kd = 3.0;
         previous_error = 0.0;
         integral = 0.0;
-        dt = 0.7; // Adjust as necessary
+        dt = 1; // Adjust as necessary
     }
 
 private:
@@ -59,7 +59,7 @@ private:
         cmd_msg.angular.z = pid_output;       //+ yaw_correction;
 
         // Set linear speed
-        cmd_msg.linear.x = 0.4; // Adjust as necessary
+        cmd_msg.linear.x = 0.5; // Adjust as necessary
 
         // Publish the command
         velocity_publisher_->publish(cmd_msg);

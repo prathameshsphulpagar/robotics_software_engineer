@@ -3,8 +3,8 @@
 #include <sensor_msgs/msg/imu.hpp>
 #include <chrono>
 
-int rightFlag = 0, leftFlag = 1;
-float wallFollowingDistance = 2.00, frontObstacleThreshold_ = (wallFollowingDistance * 1.30);
+int rightFlag = 1, leftFlag = 0;
+float wallFollowingDistance = 2.00, frontObstacleThreshold_ = (wallFollowingDistance * 1.50);
 double Kp, Ki, Kd;
 float previous_error, integral, dt;
 
@@ -108,6 +108,25 @@ private:
 
                 // Update previous error
                 previous_error = error;
+                if ((wallDistance.linear.x < (frontObstacleThreshold_ * 1.50)) && (wallDistance.linear.x > 0))
+                {
+                    // Obstacle in front, decide to move left or right
+                    if ((wallDistance.linear.x < (frontObstacleThreshold_)) && (wallDistance.linear.x > 0))
+                    {
+                        if (wallDistance.linear.y < wallDistance.linear.z)
+                        {
+                            // Move to the right if left obstacle is closer
+                            cmd_msg.angular.z = 1.0; // Adjust value as necessary for turning right
+                        }
+                        else
+                        {
+                            // Move to the left if right obstacle is closer
+                            cmd_msg.angular.z = -1.0; // Adjust value as necessary for turning left
+                        }
+                    }
+                    // Set linear speed for evasive maneuver
+                    cmd_msg.linear.x = 0.1; // Slow down when avoiding obstacle
+                }
             }
             else
             {

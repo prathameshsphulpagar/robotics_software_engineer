@@ -4,7 +4,8 @@
 #include <chrono>
 
 int rightFlag = 1, leftFlag = 0;
-float wallFollowingDistance = 2.00, frontObstacleThreshold_ = (wallFollowingDistance * 1.50);
+float lenearSpeed = 0.5;
+float wallFollowingDistance = 3.00, frontObstacleThreshold_ = (wallFollowingDistance * 1.50);
 double Kp, Ki, Kd;
 float previous_error, integral, dt;
 
@@ -53,27 +54,7 @@ private:
     void PID_wallFollowing()
     {
         auto cmd_msg = geometry_msgs::msg::Twist();
-        // if ((wallDistance.linear.x < frontObstacleThreshold_) && (wallDistance.linear.x > (frontObstacleThreshold_ * 1.30)))
-        // {
-        //     // Obstacle in front, decide to move left or right
-        //     if (wallDistance.linear.y < wallDistance.linear.z)
-        //     {
-        //         // Move to the right if left obstacle is closer
-        //         cmd_msg.angular.z = 1.0; // Adjust value as necessary for turning right
-        //     }
-        //     else
-        //     {
-        //         // Move to the left if right obstacle is closer
-        //         cmd_msg.angular.z = -1.0; // Adjust value as necessary for turning left
-        //     }
 
-        //     // Set linear speed for evasive maneuver
-        //     cmd_msg.linear.x = 0.1; // Slow down when avoiding obstacle
-
-        //     // Publish the evasive command
-        //     // velocity_publisher_->publish(cmd_msg);
-        //     return; // Skip the rest of the code
-        // }
         if (rightFlag == 1 && leftFlag == 0)
         {
             if (wallDistance.linear.z < (wallFollowingDistance + movementThreshold_) && wallDistance.linear.z > (wallFollowingDistance - movementThreshold_))
@@ -101,7 +82,7 @@ private:
                 cmd_msg.angular.z = pid_output;       //+ yaw_correction;
 
                 // Set linear speed
-                cmd_msg.linear.x = 0.5; // Adjust as necessary
+                cmd_msg.linear.x = lenearSpeed; // Adjust as necessary
 
                 // Publish the command
                 // velocity_publisher_->publish(cmd_msg);
@@ -125,7 +106,7 @@ private:
                         }
                     }
                     // Set linear speed for evasive maneuver
-                    cmd_msg.linear.x = 0.1; // Slow down when avoiding obstacle
+                    cmd_msg.linear.x = (lenearSpeed * 0.40); // Slow down when avoiding obstacle
                 }
             }
             else
@@ -164,7 +145,7 @@ private:
                 cmd_msg.angular.z = -pid_output; //+ yaw_correction;
 
                 // Set linear speed
-                cmd_msg.linear.x = 0.5;
+                cmd_msg.linear.x = lenearSpeed;
 
                 // Publish the command
                 // velocity_publisher_->publish(cmd_msg);
@@ -188,7 +169,7 @@ private:
                         }
                     }
                     // Set linear speed for evasive maneuver
-                    cmd_msg.linear.x = 0.1; // Slow down when avoiding obstacle
+                    cmd_msg.linear.x = (lenearSpeed * 0.40); // Slow down when avoiding obstacle
                 }
             }
             else
@@ -211,7 +192,7 @@ private:
         velocity_publisher_->publish(cmd_msg);
     }
 
-    float movementThreshold_ = 2.00;
+    float movementThreshold_ = (wallFollowingDistance * 0.50);
 
     // veriable declare
     float imu_x, imu_y, imu_z, imu_w;

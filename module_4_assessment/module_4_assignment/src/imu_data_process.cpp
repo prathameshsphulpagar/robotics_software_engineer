@@ -45,7 +45,7 @@ private:
         vz_ += az * delta_t;
 
         // Log the calculated velocities
-        // RCLCPP_INFO(this->get_logger(), "Velocity -> X: %.4f m/s, Y: %.4f m/s, Z: %.4f m/s", vx_, vy_, vz_);
+        RCLCPP_INFO(this->get_logger(), "Velocity -> X: %.4f m/s, Y: %.4f m/s, Z: %.4f m/s", vx_, vy_, vz_);
 
         // Create a Vector3Stamped message to publish velocity
         geometry_msgs::msg::Vector3Stamped velocity_msg;

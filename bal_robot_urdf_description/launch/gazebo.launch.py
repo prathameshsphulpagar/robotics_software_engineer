@@ -78,6 +78,6 @@ def generate_launch_description():
         joint_state_publisher_node,
         gazebo_server,
         gazebo_client,
-        urdf_spawn_node
-        # rviz_node
+        urdf_spawn_node,
+        rviz_node
     ])

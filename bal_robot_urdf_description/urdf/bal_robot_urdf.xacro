@@ -55,14 +55,14 @@
     <inertia ixx="3.5e-05" iyy="2e-06" izz="3.4e-05" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
   </inertial>
   <visual>
-    <origin xyz="-0.187737 -0.001226 -0.082264" rpy="0 0 0"/>
+    <origin xyz="-0.387737 -0.001226 -0.082264" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find bal_robot_urdf_description)/meshes/realsence_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="-0.187737 -0.001226 -0.082264" rpy="0 0 0"/>
+    <origin xyz="-0.387737 -0.001226 -0.082264" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find bal_robot_urdf_description)/meshes/realsence_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -195,6 +195,9 @@
   </collision>
 </link>
 
+<link name="realsence_1_optical"> </link>
+
+
 <joint name="Rigid 2" type="fixed">
   <origin xyz="0.117737 0.001226 0.164764" rpy="0 0 0"/>
   <parent link="base_link"/>
@@ -205,6 +208,12 @@
   <origin xyz="0.187737 0.001226 0.082264" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="realsence_1"/>
+</joint>
+
+<joint name="Rigid 3 optical" type="fixed">
+  <origin xyz="0.187737 0.001226 0.082264" rpy="${-pi/2} 0 ${-pi/2}"/>
+  <parent link="base_link"/>
+  <child link="realsence_1_optical"/>
 </joint>
 
 <joint name="Revolute 4" type="continuous">

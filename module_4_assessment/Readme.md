@@ -1,7 +1,9 @@
 # Assignments for Module #4 : Robot Sensing
 - Create all files in *module_4_assignment* package
 
-### Assignment 1: Wall Following Behaviour
+### Task 2: Design Software Flow for maze Solving
+in the folder module_4_assessment->Diagram->software flow for maze solving.
+### Task 3: Implement Maze Solving in Gazebo
 - **Tasks**:
 Create a maze in gazebo to perform wall following
     - Detect Wall on right with Lidar Sensor
@@ -19,7 +21,7 @@ Create a maze in gazebo to perform wall following
 3)  if the wall following shifted from more than 2 meters from its current possition it will stop.
 4) when front wall is near it will reduce its speed by 60% till it take turn.
 # ----------------------------------------------------------------------------
-### Assignment 2: Calculate Robot Speed
+### Task 3: Calculate Robot Speed
 - **Tasks**:
 Utilize Turltebo3 IMU sensor to calculate robot
     - Velocity
@@ -31,18 +33,3 @@ commands to use
 3) ros2 run teleop_twist_keyboard teleop_twist_keyboard to move the robot 
  // to check the velocity and acceleration of the robot.also use teleop twist keyboard
 # ----------------------------------------------------------------------------
-
-### Assignment 2: Ball Following Robot
-- **Tasks**:
-Make Turtlebot3 Follow a ball
-    - Utilize Camera sensor data
-    - Segment Ball
-    - When the ball moves robot should also move towards it
-
-# ----------------------------------------------------------------------------
-
-### Assignment 4: Debug the package
-- **Tasks**:
-You have to find out errors in package `robot_sensing_debug`
-    - Document all errors in running Line following launch file
-    - Document all errors in running Maze Solving launch file

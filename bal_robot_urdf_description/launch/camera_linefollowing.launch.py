@@ -18,7 +18,7 @@ def generate_launch_description():
     robot_urdf = robot_description_config.toxml()
 
     rviz_config_file = os.path.join(share_dir, 'config', 'display.rviz')
-    maze_world_file = os.path.join(module_4_assignment, 'worlds', 'maze_squre.world')
+    maze_world_file = os.path.join(module_4_assignment, 'worlds', 'line_following_with_robot.world')
     
     robot_state_publisher_node = Node(
         package='robot_state_publisher',
@@ -76,11 +76,18 @@ def generate_launch_description():
         arguments=['-d', rviz_config_file],
         output='screen'
     )
+    line_following = Node(
+        package = 'robot_sensing_debug',
+        name = 'line_following',
+        executable ='lineFollowing',
+
+    )
     return LaunchDescription([
         robot_state_publisher_node,
         joint_state_publisher_node,
         gazebo_server,
         gazebo_client,
         urdf_spawn_node,
-        rviz_node
+        rviz_node,
+        line_following
     ])

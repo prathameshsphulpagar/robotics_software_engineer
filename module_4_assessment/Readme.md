@@ -1,5 +1,7 @@
 # Assignments for Module #4 : Robot Sensing
 - Create all files in *module_4_assignment* package
+
+# ----------------------------------------------------------------------------
 ### Task 1: restructure line following code
 ### Ans = 
 1) ros2 launch module_4_assignment module_4_camera_lineFollowing.launch.py
@@ -8,6 +10,9 @@
 
 ### Task 2: Design Software Flow for maze Solving
 in the folder module_4_assessment->Diagram->software flow for maze solving.
+
+# ----------------------------------------------------------------------------
+
 ### Task 3: Implement Maze Solving in Gazebo
 - **Tasks**:
 Create a maze in gazebo to perform wall following
@@ -25,7 +30,9 @@ Create a maze in gazebo to perform wall following
     3) Set wallFollowingDistance veriable set distance as you want. (currently its 3 meter)
 3)  if the wall following shifted from more than 2 meters from its current possition it will stop.
 4) when front wall is near it will reduce its speed by 60% till it take turn.
+
 # ----------------------------------------------------------------------------
+
 ### Task 3: Calculate Robot Speed
 - **Tasks**:
 Utilize Turltebo3 IMU sensor to calculate robot

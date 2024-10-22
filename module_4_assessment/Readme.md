@@ -1,5 +1,10 @@
 # Assignments for Module #4 : Robot Sensing
 - Create all files in *module_4_assignment* package
+### Task 1: restructure line following code
+### Ans = 
+1) ros2 launch module_4_assignment module_4_camera_lineFollowing.launch.py
+
+# ----------------------------------------------------------------------------
 
 ### Task 2: Design Software Flow for maze Solving
 in the folder module_4_assessment->Diagram->software flow for maze solving.
@@ -10,7 +15,7 @@ Create a maze in gazebo to perform wall following
     - Should create an envionrment of sqaure shape
     - Robot will keep the structure on its right
 ### Ans =
-1) ros2 launch module_4_assignment module_4_launch.launch.py
+1) ros2 launch module_4_assignment module_4_lidar_wallFollowing.launch.py
     Run this command to run robot wall following mode
 2) robot did wall following using PID , so it is able to do Left side and Right side wall.
     to chnage the side make sure setting is like
@@ -33,3 +38,4 @@ commands to use
 3) ros2 run teleop_twist_keyboard teleop_twist_keyboard to move the robot 
  // to check the velocity and acceleration of the robot.also use teleop twist keyboard
 # ----------------------------------------------------------------------------
+

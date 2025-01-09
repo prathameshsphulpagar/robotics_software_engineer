@@ -5,7 +5,7 @@
 #include <tuple>
 #include <vector>
 
-input input_old = input(0.0);
+input input_old = input(0,0);
 
 LqrNode::LqrNode()
     : Node("lqr_node"), dt_(0.03), tolerance(0.8), end_controller(false),
@@ -20,7 +20,7 @@ LqrNode::LqrNode()
 
     Q_ << 0.8, 0.0, 0.0, 0.0, 0.0, 0.8;
     R_ << 0.8, 0.0, 0.8;
-    lqr_ = std::make_unique<LQR<Q_, R_, 100>>();
+    lqr_ = std::make_unique<LQR>(Q_, R_, 100);
 
     waypoints_ = {State(0, 0, M_PI / 4), State(1, 1, M_PI / 2),
                   State(1, 2, M_PI), State(0, 3, 3 * M_PI / 2),

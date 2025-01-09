@@ -12,6 +12,10 @@
 
 
 struct State {
+    double x;
+    double y;
+    double theta;
+
     State() = default;
     State(double x_, double y_, double theta_) : x(x_), y(y_), theta(theta_) {}
     double x, y, theta;
@@ -39,30 +43,25 @@ private:
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr control_input_pub_;
     rclcpp::TimerBase::SharedPtr control_loop_timer_;
 
-    Eigen::Matrix3d Q;
-    Eigen::Matrix2d R;
+    Eigen::Matrix3d Q_;
+    Eigen::Matrix2d R_;
     Eigen::Vector3d state_error_;
+
+    double dt_;
+    double tolerance;
+    bool end_controller;
+    double max_linear_velocity;
+    double max_angular_velocity;
+    State actual_state_;
+    input control_input_;
+
+    std::vector<State> waypoints_;
+    int current_waypoint;
+    bool odom_received_;
+
+    std::unique_ptr<LQR> lqr_;
 };
-
-
-Eigen::Matrix3d Q_;
-Eigen::Matrix2d R_;
-Eigen::Vector3d state_error_;
-
-double dt;
-double tolerance;
-bool end_controller;
-double max_linear_velocity;
-double max_angular_velocity;
-State actual_state_;
-input control_input;
-
-std::vector<State> waypoints_;
-int current_waypoint;
-bool odom_received_;
-
-std::unique_ptr<LQR> lqr_;
-
+#endif
 
 
 

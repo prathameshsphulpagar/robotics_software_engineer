@@ -1,3 +1,4 @@
+// lqr_node.hpp
 #ifndef LQR_NODE_HPP
 #define LQR_NODE_HPP
 
@@ -9,7 +10,6 @@
 #include <Eigen/Dense>
 #include <lqr_lib.hpp>
 #include <vector>
-
 
 struct State {
     double x;
@@ -49,6 +49,7 @@ private:
     double dt_;
     double tolerance;
     bool end_controller;
+    bool odom_received_;
     double max_linear_velocity;
     double max_angular_velocity;
     State actual_state_;
@@ -56,8 +57,8 @@ private:
 
     std::vector<State> waypoints_;
     int current_waypoint;
-    bool odom_received_;
 
     std::unique_ptr<LQR> lqr_;
 };
+
 #endif

@@ -1,4 +1,3 @@
-// lqr_node.cpp
 #include "lqr_node.hpp"
 
 LqrNode::LqrNode() : Node("lqr_node"), end_controller(false), odom_received_(false), current_waypoint(0) {
@@ -43,16 +42,20 @@ void LqrNode::robotPoseCallback(const nav_msgs::msg::Odometry::SharedPtr msg) {
     m.getRPY(roll, pitch, actual_state_.theta);
 
     odom_received_ = true;
+
+    RCLCPP_INFO(this->get_logger(), "Odometry received: x=%.2f, y=%.2f, theta=%.2f", actual_state_.x, actual_state_.y, actual_state_.theta);
 }
 
 void LqrNode::controlLoopCallback() {
     if (!odom_received_ || end_controller) {
+        RCLCPP_INFO(this->get_logger(), "Not getting Odom data");
         return;
     }
 
     if (current_waypoint >= static_cast<int>(waypoints_.size())) {
         end_controller = true;
         publishVelocity(0.0, 0.0);
+        RCLCPP_INFO(this->get_logger(), "Reached final waypoint.");
         return;
     }
 
@@ -61,6 +64,7 @@ void LqrNode::controlLoopCallback() {
 
     if (state_error_.norm() < tolerance) {
         current_waypoint++;
+        RCLCPP_INFO(this->get_logger(), "Reached waypoint %d, moving to next waypoint.", current_waypoint);
         return;
     }
 
@@ -72,13 +76,14 @@ void LqrNode::controlLoopCallback() {
     double v_cmd = std::max(-max_linear_velocity, std::min(optimal_input(0), max_linear_velocity));
     double w_cmd = std::max(-max_angular_velocity, std::min(optimal_input(1), max_angular_velocity));
 
+    RCLCPP_INFO(this->get_logger(), "Publishing velocity: v=%.2f, w=%.2f", v_cmd, w_cmd);
     publishVelocity(v_cmd, w_cmd);
 }
 
 void LqrNode::publishVelocity(double v, double w) {
     auto msg = geometry_msgs::msg::Twist();
-    msg.linear.x = v;
-    msg.angular.z = w;
+    msg.linear.x = 1;
+    msg.angular.z = 0.5;
     control_input_pub_->publish(msg);
 }
 

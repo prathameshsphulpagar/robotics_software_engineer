@@ -1,10 +1,14 @@
+#include "rclcpp/rclcpp.hpp"
 #include <angles/angles.h>
 #include <cmath>
 #include <lqr_node.hpp>
 #include <rclcpp/logging.hpp>
 #include <tuple>
+#include <cstring>
+#include <cstring>
+#include <cstring>
 #include <vector>
-
+#include <logging.hpp>
 // Initialize previous control input
 input input_old = input(0,0);
 
@@ -74,8 +78,8 @@ void LqrNode::publishVelocity(double v,double w){
     geometry_msgs::msg::Twist msg;
     msg.linear.x = v;
     msg.angular.z = w;
-    RCLCPP_INFO(rclcpp::get_logger("LQR"), "Publishing control input: v=%f, w=%f",
-                v, w);
+    RCLCPP_INFO(rclcpp::get_logger("LQR"), "Publishing control input: v=%f, w=%f", v, w);
+    RCLCPP_INFO(rclcpp::get_logger("LQR"), "Previous control input: v=%f, w=%f", input_old.v, input_old.w);
     control_input_ = input(v, w);
     input_old = input(v, w);
     control_input_pub_->publish(msg);

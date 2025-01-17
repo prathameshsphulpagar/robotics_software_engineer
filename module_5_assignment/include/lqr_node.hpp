@@ -18,7 +18,6 @@ struct State {
 
     State() = default;
     State(double x_, double y_, double theta_) : x(x_), y(y_), theta(theta_) {}
-    double x, y, theta;
 };
 
 struct input {

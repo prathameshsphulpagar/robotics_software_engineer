@@ -34,7 +34,9 @@ void LQR::computeRiccati(InputMatrix B,StateMatrix A)
     P_ = Q_;
     B_ = B_;
     A_ = A_;
-
+    std::cout << "Initial P_: \n" << P_ << std::endl;
+    std::cout << "Initial A_: \n" << A_ << std::endl;
+    std::cout << "Initial B_: \n" << B_ << std::endl;
 for (int i = horizon_; i > 0; --i) {
     Eigen::MatrixXd Y = R_ + B_.transpose() * P_ * B_;
     Eigen::JacobiSVD<Eigen::MatrixXd> svd(Y, Eigen::ComputeThinU | Eigen::ComputeThinV);
@@ -47,8 +49,12 @@ Eigen::MatrixXd Y = R_ + B_.transpose() * P_ * B_;
 Eigen::JacobiSVD<Eigen::MatrixXd> svd(Y, Eigen::ComputeThinU | Eigen::ComputeThinV);
 Eigen::MatrixXd Yinv = svd.matrixV() * svd.singularValues().asDiagonal().inverse() * svd.matrixU().transpose();
 K_ = Yinv * B_.transpose() * P_ * A_;
+    std::cout << "Computed gain matrix K: \n" << K_ << std::endl;
+
 }
 LQR::InputVector LQR::computeOptimalInput(StateVector const& state_error) {
     InputVector u = -K_ * state_error;
+        std::cout << "Computed optimal input: \n" << u << std::endl;
+
     return u;
 }
